@@ -12,6 +12,7 @@ django-anymail
 django-browser-reload
 django-debug-toolbar
 django-environ
+django-htmx
 django-redis
 idna
 oauthlib
