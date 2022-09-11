@@ -1,5 +1,14 @@
 {% load i18n %}
-<p>{% translate "Matches" %}</p>
-<p class="form-control">
-    {{ matches|join:", " }}
-</p>
+<div>
+    <label for="text" class="form-label mb-3">{% translate "Text" %}</label>
+    <textarea class="form-control" id="text" name="text" rows="10" cols="50" placeholder="Insert your test string here"
+              hx-post="{% url "core:index" %}"
+              hx-trigger="keyup delay:0.5s"
+              hx-target="#text-and-matches">{{ text }}</textarea>
+</div>
+<div id="matches">
+    <p class="my-3">{% translate "Matches" %}</p>
+    <p class="form-control">
+        {{ matches|join:", " }}
+    </p>
+</div>

@@ -5,18 +5,18 @@
 {% block head_title %}{% endblock head_title %}
 
 {% block content %}
-    <div class="container">
-        <form class="my-3" hx-get="{% url "core:index" %}"
-                   hx-trigger="keyup"
-                   hx-target="#matches">
-            <label for="pattern" class="form-label my-3">{% translate "Regular expression" %}</label>
-            <input type="text" class="form-control" id="pattern" name="pattern" placeholder="Insert your regular expression here">
-            <label for="test-string" class="form-label my-3">{% translate "Test string" %}</label>
-            <textarea class="form-control" id="test-string" name="test-string" rows="10" cols="50"
-                      placeholder="Insert your test string here">{% lorem 2 random %}</textarea>
-        </form>
+    <div id="main" class="container">
+        <div id="regex">
+            <form class="my-3"
+                  hx-post="{% url "core:matches" %}"
+                  hx-trigger="keyup"
+                  hx-target="#text-and-matches">
+                <label for="pattern" class="form-label my-3">{% translate "Regular expression" %}</label>
+                <input type="text" class="form-control" id="pattern" name="pattern" value="{{ pattern }}">
+            </form>
+        </div>
 
-        <div class="my-3" id="matches">
+        <div id="text-and-matches">
             {% include "matches.html" %}
         </div>
     </div>

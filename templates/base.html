@@ -15,7 +15,7 @@
     <link rel="shortcut icon" type="image/png" href="{% static "images/favicon.ico" %}"/>
 </head>
 
-<body>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
 {% include "includes/header.html" %}
 {% block content %}{% endblock content %}
 {% include "includes/footer.html" %}
