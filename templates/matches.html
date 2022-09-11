@@ -8,7 +8,7 @@
 </div>
 <div id="matches">
     <p class="my-3">{% translate "Matches" %}</p>
-    <p class="form-control">
-        {{ matches|join:", " }}
-    </p>
+    <div class="form-control">
+        {{ matches|safe }}
+    </div>
 </div>

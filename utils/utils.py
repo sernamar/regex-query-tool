@@ -9,15 +9,23 @@ def get_matches(pattern, string):
 
 def style_word(word):
     """"
-    Adds a "color red" style to the word.
+    Adds a "bold" and "color red" style to the word.
     """
-    return '<span style="color: red;">' + word + '</span>'
+    return '<span style="font-weight: bold; color: red;">' + word + '</span>'
+
+
+def create_html_paragraphs(sentences_list):
+    return "".join(["<p>" + sentence + "</p>" for sentence in sentences_list])
 
 
 def add_style(string, matches):
-    words_list = [style_word(word) if word in matches else word
-                  for word in string.split()]
-    return " ".join(words_list)
+    paragraphs = string.split("\n")
+    sentence_list = []
+    for paragraph in paragraphs:
+        words_list = [style_word(word) if word in matches else word for word in paragraph.split()]
+        sentence = " ".join(words_list)
+        sentence_list.append(sentence)
+    return create_html_paragraphs(sentence_list)
 
 
 def remove_style(string):
