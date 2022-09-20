@@ -4,6 +4,6 @@ Regex query tool
 ## How to
 Write a regular expression and some text, and the app will show that text highliting the matching expressions.
 
-## Technologies
+## Main technologies
 - [Django](https://www.djangoproject.com/)
 - [HTMX](https://htmx.org/)
